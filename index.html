@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS Diner - Where we feast on CSS Selectors!</title>
+    <title>CSS Diner - CSSセレクタでごちそうを！</title>
     <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/levels.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/restaurant.js" type="text/javascript" charset="utf-8"></script>
@@ -29,7 +29,7 @@
           <plate><apple /></plate>
         </div>
         <span class="share-menu">
-          Share
+          シェア
           <a class="share-twitter" type="twitter" href="#"></a>
           <a class="share-facebook" type="facebook" href="#"></a>
           <a class="share-email" type="email" href="#"></a>
@@ -39,13 +39,13 @@
       <h2 class="order"></h2>
 
       <div class="note">
-        <h3>No worries, you've got this!</h3>
+        <h3>大丈夫、きっとうまくいきます！</h3>
         <p>
-          You're about to learn CSS Selectors!
-          Selectors are how you pick which element to apply styles to.
+          これからCSSセレクタを学びます！
+          セレクタは、どの要素にスタイルを適用するかを選ぶためのものです。
         </p>
 
-        <h4>Exhibit 1 - A CSS Rule</h4>
+        <h4>例1 - CSSルール</h4>
 
         <pre>
 p {
@@ -53,21 +53,21 @@ p {
 }</pre>
 
         <p>
-          Here, the "p" is the selector (selects all &lt;p&gt; elements) and applies the margin-bottom style.
+          ここで「p」はセレクタ（すべての&lt;p&gt;要素を選択）で、margin-bottomスタイルを適用します。
         </p>
         <p>
-          To play, type in a CSS selector in the editor below to select the correct items on the table.If you get it right, you'll advance to the next level.
+          プレイするには、下のエディタにCSSセレクタを入力して、テーブル上の正しいアイテムを選択してください。正解すると次のレベルに進みます。
         </p>
         <p>
-          Hover over the items on the table to see their HTML markup.
+          テーブル上のアイテムにマウスを重ねると、そのHTMLマークアップが表示されます。
         </p>
         <p>
-          Get help with selectors on the right! &rarr;
+          右側でセレクタのヘルプが見られます！ &rarr;
         </p>
-        <a class="note-toggle" href="#">Ok, got it!</a>
+        <a class="note-toggle" href="#">OK、わかった！</a>
       </div>
 
-      <a class="note-toggle" href="#">Help, I'm stuck!</a>
+      <a class="note-toggle" href="#">助けて、わからない！</a>
 
       <div class="game-wrapper">
         <div class="table-wrapper">
@@ -85,23 +85,23 @@ p {
 
         <div class="editor-pane">
           <div class="input-header">
-            <div class="file-name">style.css</div> CSS Editor
+            <div class="file-name">style.css</div> CSSエディタ
           </div>
           <div class="file-window css-view">
             <div class="line-numbers">
               1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20
             </div>
-              <input class="input-strobe" type="text" placeholder="Type in a CSS selector"/><span class="plus">+</span><div class="enter-button">enter</div>
+              <input class="input-strobe" type="text" placeholder="CSSセレクタを入力してください"/><span class="plus">+</span><div class="enter-button">エンター</div>
             <div>
             {<br/>
-            /* Styles would go here. */<br/>
+            /* ここにスタイルが入ります。 */<br/>
             }
             </div>
             <div class="help">
               <br/>
               /* <br/>
-              Type a number to skip to a level.<br/>
-              Ex &rarr; "5" for level 5 <br/>*/
+              数字を入力するとレベルをスキップできます。<br/>
+              例 &rarr; 「5」でレベル5へ <br/>*/
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ p {
         <div class="editor-pane html-view">
           <div class="input-header">
             <div class="file-name">table.html</div>
-            HTML Viewer
+            HTMLビューア
           </div>
           <div class="file-window">
             <div class="line-numbers">1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20</div>
@@ -120,14 +120,14 @@ p {
 
       <div class="what-is-this">
         <p>
-          Made by <a href="http://www.twitter.com/flukeout">@flukeout</a> &mdash; come say hi!
+          作成者：<a href="http://www.twitter.com/flukeout">@flukeout</a> — 気軽に声をかけてね！
         </p>
         <p>
-          Have feedback or questions? Please file an issue on <a href="https://github.com/flukeout/css-diner/issues">the Github repo</a>.
+          フィードバックや質問は、<a href="https://github.com/flukeout/css-diner/issues">Githubリポジトリ</a>でどうぞ。
         </p>
       </div>
 
-      <div class="helper"><!-- This is the popup that floats over table elements --></div>
+      <div class="helper"><!-- これはテーブル要素の上に浮かぶポップアップです --></div>
 
     </div><!-- /left-col -->
 
@@ -152,15 +152,15 @@ p {
           <h2 class="title"></h2>
           <h3 class="syntax"></h3>
           <div class="hint"></div>
-          <h4 class="examples-title">Examples</h4>
+          <h4 class="examples-title">例</h4>
           <div class="examples"></div>
         </div>
       </div>
 
       <div class="level-menu">
-        <h2>Choose a level</h2>
-        <div class="levels"><!-- level links are inserted here--></div>
-        <a class="reset-progress" href="#">Reset Progress</a>
+        <h2>レベルを選択</h2>
+        <div class="levels"><!-- レベルリンクがここに挿入されます --></div>
+        <a class="reset-progress" href="#">進行状況をリセット</a>
       </div>
 
       <div class="level-menu-toggle-wrapper">

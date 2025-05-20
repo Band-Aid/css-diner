@@ -1,20 +1,20 @@
 /*
-  Function Reference
-  ==================
+  関数リファレンス
+  ===============
 
-  loadLevel() - loads up the level
-  fireRule() - fires the css rule
-  updateProgressUI() - adds a checkmark to the level menu and header when a correct guess is made, removes it if incorrect
-  hideTooltip() - hides markup tooltip that hovers over the elements
-  showHelp() - Loads help text & examples for each level
+  loadLevel() - レベルを読み込む
+  fireRule() - CSSルールを適用する
+  updateProgressUI() - 正解時にレベルメニューとヘッダーにチェックマークを追加し、不正解時に削除する
+  hideTooltip() - 要素の上に表示されるマークアップツールチップを非表示にする
+  showHelp() - 各レベルのヘルプテキストと例を表示する
 
-  ..to be continued!
+  ..続きます！
 */
 
-var level;  // Holds current level info
-var currentLevel = parseInt(localStorage.currentLevel,10) || 0; // Keeps track of the current level Number (0 is level 1)
-var levelTimeout = 1000; // Delay between levels after completing
-var finished = false;    // Keeps track if the game is showing the Your Rock! screen (so that tooltips can be disabled)
+var level;  // 現在のレベル情報を保持
+var currentLevel = parseInt(localStorage.currentLevel,10) || 0; // 現在のレベル番号を管理（0がレベル1）
+var levelTimeout = 1000; // レベルクリア後の遷移ディレイ
+var finished = false;    // 「クリア！」画面を表示中かどうか（ツールチップ無効化用）
 
 var blankProgress = {
   totalCorrect : 0,
@@ -23,7 +23,7 @@ var blankProgress = {
   guessHistory : {}
 }
 
-// Get progress from localStorage, or start from scratch if we don't have any
+// localStorageから進捗を取得、なければ新規作成
 var progress = JSON.parse(localStorage.getItem("progress")) || blankProgress;
 
 
@@ -34,11 +34,11 @@ $(document).ready(function(){
     var type = $(this).attr("type");
 
     if(type == "twitter"){
-      var url = "https://twitter.com/intent/tweet?text=Learning%20CSS?%20Try%20CSS%20Diner,%20the%20fun%20way%20to%20practice%20selectors%20%E2%86%92&hashtags=css,cssdiner,webdev&url=http%3A%2F%2Fcssdiner.com%2F&via=flukeout";
+      var url = "https://twitter.com/intent/tweet?text=CSSを学ぶならCSS Diner！セレクタを楽しく練習しよう →&hashtags=css,cssdiner,webdev&url=http%3A%2F%2Fcssdiner.com%2F&via=flukeout";
     } else if (type == "facebook") {
       var url = "https://www.facebook.com/sharer.php?src=sp&u=http%3A%2F%2Fcssdiner.com";
     } else if (type == "email") {
-      var url = "mailto:?subject=Check+out+CSS+Diner&body=It's+a+fun+game+to+learn+%26+practice+CSS+selectors.%0D%0A%0D%0AYou+can+try+it+at+http://cssdiner.com";
+      var url = "mailto:?subject=CSS Dinerをチェックしよう&body=CSSセレクタを楽しく学べるゲームです。%0D%0A%0D%0Ahttp://cssdiner.comで遊べます";
     }
 
     PopupCenter(url, "title", 600, 450);
@@ -52,7 +52,7 @@ $(document).ready(function(){
     }
   });
 
-  // Custom scrollbar plugin
+  // カスタムスクロールバー
   $(".left-col, .level-menu").mCustomScrollbar({
     scrollInertia: 0,
     autoHideScrollbar: true
@@ -96,13 +96,13 @@ $(document).ready(function(){
     return false;
   });
 
-  // Resets progress and progress indicators
+  // 進捗リセット
   $(".reset-progress").on("click",function(){
     resetProgress();
     return false;
   })
 
-  //Handle inputs from the input box on enter
+  // 入力ボックスでEnter押下時
   $("input").on("keypress",function(e){
     e.stopPropagation();
     if(e.keyCode ==  13){
@@ -125,13 +125,13 @@ $(document).ready(function(){
     $("input").focus();
   });
 
-  //Add tooltips
+  // ツールチップ追加
   $(".table").on("mouseover","*",function(e){
     e.stopPropagation();
     showTooltip($(this));
   });
 
-  //Shows the tooltip on the table
+  // マークアップ上でツールチップ表示
   $(".markup").on("mouseover","div *",function(e){
     el = $(this);
     var markupElements = $(".markup *");
@@ -140,7 +140,7 @@ $(document).ready(function(){
     e.stopPropagation();
   });
 
-  // Shows the tooltip on the table
+  // マークアップ上でツールチップ非表示
   $(".markup").on("mouseout","*",function(e){
     e.stopPropagation();
     hideTooltip();
@@ -172,10 +172,10 @@ function addAnimation(el, className){
   })
 }
 
-// Reset all progress
-// * Removes checkmarks from level header and list
-// * Scrolls level menu to top
-// * Resets the progress object
+// 進捗リセット
+// * レベルヘッダーとリストからチェックマーク削除
+// * レベルメニューを一番上にスクロール
+// * 進捗オブジェクトをリセット
 
 function resetProgress(){
   currentLevel = 0;
@@ -186,7 +186,7 @@ function resetProgress(){
   $(".completed").removeClass("completed");
   loadLevel();
   closeMenu();
-  $("#mCSB_2_container").css("top",0); // Strange element to reset scroll due to scroll plugin
+  $("#mCSB_2_container").css("top",0); // スクロールプラグインのための特殊処理
 }
 
 
